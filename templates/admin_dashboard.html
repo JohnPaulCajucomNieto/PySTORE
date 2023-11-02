@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Store</title>
+</head>
+<body>
+<h3>Dashboard</h3>
+Welcome {{ userid }} : {{ name }}!
+<br>
+<br>
+{% if accesslevel==1: %}
+<a href="/users">List of Users</a><br>
+{% else: %}
+<a href="#">My Profile</a><br>
+{% endif %}
+</body>
+</html>

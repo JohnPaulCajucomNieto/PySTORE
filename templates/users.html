@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Store</title>
+</head>
+<body>
+<h2>List of Users</h2>
+<table>
+<tr>
+<td>User ID</td>
+<td>Name</td>
+<td>Password</td>
+<td>Update</td>
+<td>Delete</td>
+</tr>
+{% for x in users: %}
+<tr>
+<td>{{ x[0] }}</td>
+<td>{{ x[1] }}</td>
+<td>{{ x[2] }}</td>
+<td>{{ x[3] }}</td>
+<td><a href="/update/{{ x[0] }}">Update</a></td>
+<td><a href="/deleteuser/{{ x[0] }}">Delete</a></td>
+    </tr>
+{% endfor %}
+</table>
+Add user <a href="/registration">here</a>.
+</body>
+</html>

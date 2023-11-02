@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Store</title>
+</head>
+<body>
+<h1>USER INFORMATION</h1>
+<h3>Please update user details.</h3>
+<form action = "/updateuser" method = "post">
+{% for field in myresult: %}
+<input type = "text" name = "id" value="{{ field[0] }}" hidden/></p>
+<p>User ID:</p>
+<p><input type = "text" name = "userid" value="{{ field[1] }}" readonly/></p>
+<p>Password:</p>
+<p><input type = "password" name = "password" value="{{ field[2] }}" /></p>
+<p>Name:</p>
+<p><input type = "text" name = "name" value="{{ field[3] }}" /></p>
+<p>Access Level:</p>
+{% if field[4]==1: %}
+<input type="radio" id="admin1" name="accesslevel" value="1"
+
+checked="checked">
+
+<label for="admin1">Admin</label><br>
+<input type="radio" id="non_admin1" name="accesslevel" value="0">
+<label for="non_admin1">Non-admin</label><br>
+{% else: %}
+<input type="radio" id="admin2" name="accesslevel" value="1">
+    <label for="admin2">Admin</label><br>
+<input type="radio" id="non_admin2" name="accesslevel" value="0"
+
+checked="checked">
+
+<label for="non_admin2">Non-admin</label><br>
+{% endif %}
+<p>Status:</p>
+{% if field[5]==1: %}
+<input type="radio" id="active1" name="status" value="1" checked="checked">
+<label for="active1">Active</label><br>
+<input type="radio" id="inactive1" name="status" value="0">
+<label for="inactive1">Inactive</label><br>
+{% else: %}
+<input type="radio" id="active2" name="status" value="1">
+<label for="active2">Active</label><br>
+<input type="radio" id="inactive2" name="status" value="0" checked="checked">
+<label for="inactive2">Inactive</label><br>
+{% endif %}
+<p><input type = "submit" value = "Save" /></p>
+{% endfor %}
+</form>
+</body>
+</html>
